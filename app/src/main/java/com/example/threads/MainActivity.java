@@ -2,12 +2,16 @@ package com.example.threads;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -30,28 +34,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final Button button = findViewById(R.id.button);
         final TextView text = findViewById(R.id.textView);
+        final ImageView image= findViewById(R.id.imageView);
         ExecutorService executor = Executors.newSingleThreadExecutor();
-
         executor.execute(new Runnable() {
             @Override
             public void run() {
-
+                button.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        button.setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v) {
-
-                                text.setText(getDataFromUrl("https://api.myip.com"));
-
-                            }});
-                        // Tasques a la interfície gràfica (GUI)
+                        final String urldisplay = "https://randomfox.ca/images/122.jpg";
+                        final Bitmap bitmap;
+                        try {
+                            InputStream in = new java.net.URL(urldisplay).openStream();
+                            bitmap = BitmapFactory.decodeStream(in);
+                            image.setImageBitmap(bitmap);
+                        } catch (Exception e) {
+                            Log.e("Error", e.getMessage());
+                            e.printStackTrace();
+                        }
 
                     }
                 });
             }
         });
+            }});
 
 
 
