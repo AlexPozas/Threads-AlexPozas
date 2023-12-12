@@ -13,6 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Threads"
+rootProject.name = "DAM2-MP08-Threats"
 include(":app")
- 

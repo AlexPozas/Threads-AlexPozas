@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.threads"
+    namespace = "com.example.dam2_mp08_threats"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.threads"
-        minSdk = 34
-        targetSdk = 34
+        applicationId = "com.example.dam2_mp08_threats"
+        minSdk = 24
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -19,10 +19,7 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
