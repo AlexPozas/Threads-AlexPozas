@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
                         // Tasques en background (xarxa)
                         String texto = getDataFromUrl("https://bible-api.com/?random=verse");
-                        String urldisplay = "https://random-d.uk/api/24.jpg";
+                        String urldisplay = "https://random-d.uk/api/23.jpg";
                         Bitmap bitmap = null;
                         try {
                             InputStream in = new java.net.URL(urldisplay).openStream();
